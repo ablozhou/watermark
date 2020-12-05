@@ -3,6 +3,7 @@ package com.abloz;
  * water mark util,support images ,pdf, powerpoint, word,excel file format to add water mark.
  * Author: zhouhh <ablozhou@gmail.com>
  * Date:2020/12/4
+ * copy right 2020 zhouhh
  */
 
 import com.itextpdf.text.BaseColor;
@@ -155,7 +156,7 @@ public class WaterMarkUtil {
             // 生成图片
             ImageIO.write(buffImg, formatName, os);
 
-            logger.info(srcImgPath+" 图片完成添加完水印");
+            logger.info(srcImgPath+" add water mark completed.");
         } catch (Exception e) {
 
             e.printStackTrace();
@@ -351,18 +352,18 @@ public class WaterMarkUtil {
         // 校验传入的水印图片格式
         String fileType = ImageUtil.getFileType(waterRemarkPath);
         if (!fileType.equals("png")) {
-            throw new RuntimeException("向Excel上面打印水印，目前只支持png格式的图片。");
+            throw new RuntimeException("Excel only support png water mark.");
         }
 
         // 加载图片
         ByteArrayOutputStream byteArrayOut = new ByteArrayOutputStream();
         InputStream imageIn = new FileInputStream(waterRemarkPath);
         if (null == imageIn || imageIn.available() < 1) {
-            throw new RuntimeException("向Excel上面打印水印，读取水印图片失败(1)。");
+            throw new RuntimeException("add water mark to Excel,failed to read water mark image, file not exist.");
         }
         BufferedImage bufferImg = ImageIO.read(imageIn);
         if (null == bufferImg) {
-            throw new RuntimeException("向Excel上面打印水印，读取水印图片失败(2)。");
+            throw new RuntimeException("add water mark to Excel,failed to read water mark image.");
         }
         ImageIO.write(bufferImg, "png", byteArrayOut);
 

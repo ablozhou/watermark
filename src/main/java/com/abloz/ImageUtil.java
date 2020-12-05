@@ -3,6 +3,7 @@ package com.abloz;
  * image util for water mark
  * Author: zhouhh <ablozhou@gmail.com>
  * Date:2020/12/4
+ * copy right 2020 zhouhh
  */
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -123,6 +124,7 @@ public class ImageUtil {
         int des_height = src.height + len_dalta_height * 2;
         return new Rectangle(new Dimension(des_width, des_height));
     }
+
     /**
      * 根据文字生成水印图片
      * @param content
